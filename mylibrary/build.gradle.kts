@@ -20,37 +20,60 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
+                "consumer-rules.pro"
             )
         }
     }
+    java{
+        toolchain{
+            languageVersion = JavaLanguageVersion.of(17)
+        }
+    }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
         jvmTarget = "11"
     }
 }
+
+java{
+    toolchain{
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+java{
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
 publishing {
     publications {
         create<MavenPublication>("release") {
-            groupId = "in.akadmin"
-            artifactId = "my-sdk"
+            groupId = "com.github.mstVishnu"
+            artifactId = "mylibrary"
             version = "1.0.0"
 
-            afterEvaluate {
-                from(components["release"])
+            pom{
+                description="DESC"
             }
+//            afterEvaluate {
+//                from(components["release"])
+//            }
         }
+    }
+    repositories{
+        mavenLocal()
     }
 
-    repositories {
-        maven {
-            name = "localRepo"
-            url = uri("${rootProject.projectDir}/repo")
-        }
-    }
+//    repositories {
+//        maven {
+//            name = "localRepo"
+//            url = uri("${rootProject.projectDir}/repo")
+//        }
+//    }
 }
 dependencies {
 
