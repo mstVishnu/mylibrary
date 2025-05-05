@@ -1,7 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
-
+    id("maven-publish")
 }
 
 android {
@@ -32,7 +32,26 @@ android {
         jvmTarget = "11"
     }
 }
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            groupId = "in.akadmin"
+            artifactId = "my-sdk"
+            version = "1.0.0"
 
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+
+    repositories {
+        maven {
+            name = "localRepo"
+            url = uri("${rootProject.projectDir}/repo")
+        }
+    }
+}
 dependencies {
 
     implementation(libs.androidx.core.ktx)

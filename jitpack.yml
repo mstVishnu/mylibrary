@@ -1,0 +1,8 @@
+
+jdk:
+  - openjdk17
+before_install:
+  - ./scripts/prepareJitpackEnvironment.sh
+install:
+  - FILE="-Dfile=mylibrary-release.aar"
+  - mvn install:install-file -DgroupId=com.github.mstVishnu -DartifactId=mylibrary -Dversion=1.0.0 -Dpackaging=aar -DgeneratePom=true
