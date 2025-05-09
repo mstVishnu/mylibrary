@@ -1,11 +1,13 @@
 package com.student.sdk
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.student.mylibrary.ActivityFirst
 import com.student.mylibrary.MySdkClass
 
 class MainActivity : AppCompatActivity() {
@@ -14,8 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         setContentView(R.layout.activity_main)
 
-        Toast.makeText(this@MainActivity, MySdkClass.getGreeting("vishnu"), Toast.LENGTH_SHORT).show()
-
-
+        val intent = Intent(this@MainActivity, ActivityFirst::class.java)
+        startActivity(intent)
     }
 }

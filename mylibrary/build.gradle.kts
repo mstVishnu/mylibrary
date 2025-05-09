@@ -35,7 +35,10 @@ android {
         targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "11"
+        jvmTarget = "17"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -80,7 +83,27 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
+    implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
+    implementation(libs.androidx.activity)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    // Retrofit
+    implementation (libs.retrofit)
+
+    // Gson Converter for Retrofit
+    implementation (libs.converter.gson)
+
+    // OkHttp for networking
+    implementation (libs.okhttp)
+
+    // OkHttp Logging Interceptor for logging network requests/responses
+    implementation (libs.logging.interceptor)
+
+    //    //Dimen
+    implementation(libs.ssp.android)
+    implementation(libs.sdp.android)
+
 }
