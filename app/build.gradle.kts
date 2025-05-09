@@ -47,7 +47,21 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
 
     implementation(project(":mylibrary"))
-    //Dimen
-    implementation("com.intuit.ssp:ssp-android:1.0.5")
-    implementation("com.intuit.sdp:sdp-android:1.0.5")
+
+    // Retrofit
+    implementation (libs.retrofit)
+
+    // Gson Converter for Retrofit
+    implementation (libs.converter.gson)
+
+    // OkHttp for networking
+    implementation (libs.okhttp)
+
+    // OkHttp Logging Interceptor for logging network requests/responses
+    implementation (libs.logging.interceptor)
+
+    //    //Dimen
+    implementation(libs.ssp.android)
+    implementation(libs.sdp.android)
+    implementation("com.razorpay:checkout:1.6.40")
 }
