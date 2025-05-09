@@ -63,5 +63,5 @@ dependencies {
     //    //Dimen
     implementation(libs.ssp.android)
     implementation(libs.sdp.android)
-    implementation("com.razorpay:checkout:1.6.40")
+
 }
